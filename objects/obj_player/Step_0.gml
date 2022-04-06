@@ -2,8 +2,8 @@
 // You can write your code in this editor
 
 
-GPLeft = keyboard_check(vk_left);
-GPRight = keyboard_check(vk_right);
+GPLeft = keyboard_check(vk_left) or gamepad_button_check(0, gp_padl);
+GPRight = keyboard_check(vk_right) or gamepad_button_check(0, gp_padr);
 
 MoveDir = GPRight - GPLeft;
 
@@ -94,14 +94,14 @@ if state == states.regular or state == states.airborne {
 
 
 //Crouch
-if keyboard_check_pressed(vk_down) and state != states.airborne and state != states.hclimbing {
+if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing {
 		sprite_index = spr_crouch;
 		y += 16
 		state = states.crouch;
 		show_debug_message("Crouching");
 } 
 
-if keyboard_check_released(vk_down) and state != states.hclimbing{
+if (keyboard_check_released(vk_down) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing{
 	if(state == states.crouch){
 		sprite_index = spr_player;
 		state = states.regular;
@@ -115,7 +115,7 @@ if keyboard_check_released(vk_down) and state != states.hclimbing{
 
 
 //Handles Jumping
-if (keyboard_check_pressed(ord("W")) or gamepad_button_check(0,gp_face1)) and instance_place(x,y+1,obj_ground) and state != states.airborne and !gamepad_button_check(0,gp_padd) {
+if (keyboard_check_pressed(vk_up) or gamepad_button_check(0,gp_face1)) and instance_place(x,y+1,obj_ground) and state != states.airborne and !gamepad_button_check(0,gp_padd) {
 	show_debug_message(string(state))	
 	if(state == states.crouch){
 		y -= 15
@@ -197,15 +197,15 @@ if state == states.hclimbing {
 		vspeed = -(JumpHeight); 
 	}
 	
-	if gamepad_button_check(0,gp_padu){
+	if (gamepad_button_check(0,gp_padu) or keyboard_check(vk_up)){
 		vspeed = -3	
 	}
 	
-	if gamepad_button_check(0,gp_padd) and (!instance_place(x,y+1,obj_ground)){
+	if (gamepad_button_check(0,gp_padd) or keyboard_check(vk_down)) and (!instance_place(x,y+1,obj_ground)){
 		vspeed = 3	
 	}
 	
-	if gamepad_button_check_pressed(0,gp_face1) and ((gamepad_button_check(0,gp_padl) or gamepad_button_check(0,gp_padr))){
+	if (gamepad_button_check_pressed(0,gp_face1) or keyboard_check(vk_space)) and (((gamepad_button_check(0,gp_padl) or keyboard_check(vk_left)) or (gamepad_button_check(0,gp_padr) or keyboard_check(vk_right)))){
 		show_debug_message("Leaving Wall")
 		x += (MoveSpeed * MoveDir);
 	    state = states.airborne;
