@@ -2,8 +2,8 @@
 // You can write your code in this editor
 
 
-GPLeft = gamepad_button_check(0,gp_padl);
-GPRight = gamepad_button_check(0,gp_padr);
+GPLeft = keyboard_check(vk_left);
+GPRight = keyboard_check(vk_right);
 
 MoveDir = GPRight - GPLeft;
 
@@ -94,14 +94,14 @@ if state == states.regular or state == states.airborne {
 
 
 //Crouch
-if gamepad_button_check_pressed(0,gp_padd) and state != states.airborne and state != states.hclimbing {
+if keyboard_check_pressed(vk_down) and state != states.airborne and state != states.hclimbing {
 		sprite_index = spr_crouch;
 		y += 16
 		state = states.crouch;
 		show_debug_message("Crouching");
 } 
 
-if gamepad_button_check_released(0,gp_padd) and state != states.hclimbing{
+if keyboard_check_released(vk_down) and state != states.hclimbing{
 	if(state == states.crouch){
 		sprite_index = spr_player;
 		state = states.regular;
