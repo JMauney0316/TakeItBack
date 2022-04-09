@@ -4,12 +4,12 @@
 
 //Various enum states
 
-/*vclimbing handles vertical wall climbs, hclimbing handles ceilings, dead is death, regular is anything else 
+/*slash handles melee, hclimbing handles ceilings, dead is death, regular is anything else 
 airborne is jumping
 */
 
 enum states {
-	vclimbing,
+	slash,
 	dead,
 	hclimbing,
 	regular,
@@ -18,13 +18,19 @@ enum states {
 	roll
 }
 
+enum weapons {
+	ranged,
+	sword
+}
+
 //Handles shooting intervals
 shootReady = true;
 lastDir = 1;
-
+swordReady = true;
 
 //Initial state
 state = states.regular;
+weapon = weapons.ranged;
 
 //Movement Direction
 MoveDir = image_xscale;

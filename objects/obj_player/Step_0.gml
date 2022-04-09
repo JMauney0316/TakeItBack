@@ -21,62 +21,6 @@ var Move = MoveDir * MoveSpeed;
 //General Regular and Airborne Movement
 if state == states.regular or state == states.airborne {
 	
-	/*
-	if (gamepad_button_check(0,gp_padl) or keyboard_check(ord("A"))) and !instance_place(x-MoveSpeed,y,obj_ground){
-		
-		//Checks to see if player is in crouch state, readjust if so
-		if(state == states.crouch){
-			state = states.regular	
-			y -= 15
-			sprite_index = spr_player
-			show_debug_message("Swapping");
-		}
-		
-		while(instance_place(x-MoveSpeed,y,obj_ground)){
-			x -= 1
-		}
-		
-		x -= MoveSpeed;
-		MoveDir = -1
-		image_xscale = MoveDir
-		
-		
-	} 
-	
-	if (gamepad_button_check(0,gp_padr) or keyboard_check(ord("D"))) and !instance_place(x+MoveSpeed,y,obj_ground){
-		
-		//Checks to see if player is in crouch state, readjust if so
-		if(state == states.crouch){
-			state = states.regular	
-			y -= 15
-			sprite_index = spr_player
-			show_debug_message("Swapping");
-		}
-		
-		while(instance_place(x+MoveSpeed,y,obj_ground)){
-			x += 1
-			show_debug_message("Inside while");
-		}
-		
-		x += MoveSpeed;
-		MoveDir = 1
-		image_xscale = MoveDir
-		
-		
-	} 
-	*/
-	
-	//New movement
-	
-	/*
-	if(state == states.crouch and (GPLeft == 1 or GPRight == 1)){
-			state = states.regular	
-			y -= 15
-			//sprite_index = spr_player
-			show_debug_message("Swapping");
-	}
-	*/
-	
 	
 	if(instance_place(x+(Move),y,obj_ground)){
 		while(!instance_place(x+sign(Move),y,obj_ground)){
@@ -97,7 +41,9 @@ if state == states.regular or state == states.airborne {
 if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing {
 		sprite_index = spr_crouch;
 		y += 16
-		state = states.crouch;
+		if(state != states.airborne){
+			state = states.crouch;
+		}
 		show_debug_message("Crouching");
 } 
 
@@ -115,7 +61,7 @@ if (keyboard_check_released(vk_down) or gamepad_button_check_released(0, gp_padd
 
 
 //Handles Jumping
-if (keyboard_check_pressed(vk_up) or gamepad_button_check(0,gp_face1)) and instance_place(x,y+1,obj_ground) and state != states.airborne and !gamepad_button_check(0,gp_padd) {
+if (keyboard_check(vk_up) or gamepad_button_check(0,gp_face1)) and instance_place(x,y+1,obj_ground) and state != states.airborne and !gamepad_button_check(0,gp_padd) {
 	show_debug_message(string(state))	
 	if(state == states.crouch){
 		y -= 15
@@ -215,10 +161,17 @@ if state == states.hclimbing {
 
 
 
+//Sword Slash (Incomplete)
+if((keyboard_check_pressed(vk_enter) or gamepad_button_check(0,gp_face3)) and swordReady == true and state != states.hclimbing and weapon == weapons.sword){
+	instance_create_layer(x+(image_xscale * sprite_xoffset),y,"Instances",obj_slash)
+	swordReady = false;
+	alarm[2] = 10;
+}
 
 
-//Shooting 
-if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3) ) and shootReady == true and (state != states.hclimbing or state != states.vclimbing)){
+
+//Shooting (Mostly Complete)
+if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady == true and (state != states.hclimbing) and weapon == weapons.ranged){
 	if(gamepad_button_check(0, gp_padu)){
 		BulH = 0;
 		BulV = -20;
@@ -248,13 +201,14 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3) ) and shootRead
 		
 		shootReady = false;
 		alarm[0] = 10;
-		show_debug_message(string(y));	
-		//show_debug_message("Shooting Horizontally");	
+		show_debug_message("Y: " + string(y));	
+			show_debug_message("X: " + string(x));	
+		//show_debug_message("Shooting Horizontally");		
 	}
 }
 
 
-//Roll
+//Roll (Incomplete)
 if(state == states.regular){
 	if(gamepad_button_check_pressed(0,gp_face1) and gamepad_button_check(0,gp_padd)){
 		state = states.roll
@@ -269,8 +223,22 @@ if(state == states.roll){
 
 
 
+//Handles Swapping Weapons
+if gamepad_button_check_pressed(0,gp_shoulderl) or keyboard_check_pressed(ord("S")){
+	weapon = weapons.sword;	
+}
+
+if gamepad_button_check_pressed(0,gp_shoulderr) or keyboard_check_pressed(ord("R")){
+	weapon = weapons.ranged;	
+}
+
+
+/*TESTING FUNCTIONS*/
+
 if gamepad_button_check(0,gp_face4){
 		//show_debug_message(string(x+sprite_xoffset));	
 		show_debug_message(string(vspeed));	
 		//show_debug_message(string(Move));	
 }
+
+
