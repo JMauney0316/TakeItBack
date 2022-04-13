@@ -22,3 +22,7 @@ if(instance_place(x,y+1,obj_ground)){
 } else {
 	gravity = 0.5;	
 }
+
+if(enemyHealth <= 0){
+	instance_destroy();
+}

@@ -4,3 +4,5 @@ hspeed = obj_player.BulH;
 vspeed = obj_player.BulV;
 
 hspeed *= obj_player.lastDir;
+
+basedamage = 1;

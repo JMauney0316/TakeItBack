@@ -7,3 +7,5 @@ timeline_index = tl_enemy1;
 timeline_running = true;
 
 stop = false;
+
+enemyHealth = 3;

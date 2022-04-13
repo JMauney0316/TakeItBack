@@ -8,7 +8,7 @@ GPRight = keyboard_check(vk_right) or gamepad_button_check(0, gp_padr);
 MoveDir = GPRight - GPLeft;
 
 
-if(MoveDir != 0){
+if(MoveDir != 0 and state != states.dead){
 	lastDir = MoveDir
 	image_xscale = MoveDir;
 }
@@ -38,7 +38,7 @@ if (state == states.regular or state == states.airborne) and state != states.sla
 
 
 //Crouch
-if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash {
+if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash and state != states.dead {
 		sprite_index = spr_crouch;
 		y += 16
 		if(state != states.airborne){
@@ -75,12 +75,14 @@ if (keyboard_check(vk_up) or gamepad_button_check(0,gp_face1)) and instance_plac
 	
 }
 
+
 if(instance_place(x,y+vspeed,obj_ground)){
-	while(!instance_place(x,y+sign(vspeed),obj_ground)){
+	while(!instance_place(x,y+vspeed,obj_ground)){
 		y += 1	
 	}
 	vspeed = 0;
 }
+
 
 
 //y = floor(y);
@@ -88,12 +90,12 @@ if(instance_place(x,y+vspeed,obj_ground)){
 //Grvity 2.0
 if instance_place(x,y+1,obj_ground){
 	gravity = 0;
-	if state != states.crouch and state != states.hclimbing{
+	if state != states.crouch and state != states.hclimbing and state != states.dead{
 		state = states.regular;
 	}
-	vsp = 0;
+	//vsp = 0;
 } else {
-	if state != states.crouch and state != states.hclimbing{
+	if state != states.crouch and state != states.hclimbing and state != states.dead{
 		gravity = 0.5;
 		state = states.airborne;
 	}
@@ -162,7 +164,7 @@ if state == states.hclimbing {
 
 
 //Sword Slash (Incomplete)
-if((keyboard_check_pressed(vk_enter) or gamepad_button_check_pressed(0,gp_face3)) and swordReady == true and state != states.hclimbing and state != states.crouch and weapon == weapons.sword){
+if((keyboard_check_pressed(vk_enter) or gamepad_button_check_pressed(0,gp_face3)) and swordReady == true and state != states.hclimbing and state != states.crouch and weapon == weapons.sword and state != states.dead){
 	lastState = state;
 	state = states.slash
 	instance_create_layer(x+(image_xscale * sprite_xoffset),y,"Instances",obj_slash)
@@ -173,7 +175,7 @@ if((keyboard_check_pressed(vk_enter) or gamepad_button_check_pressed(0,gp_face3)
 
 
 //Shooting (Mostly Complete)
-if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady == true and (state != states.hclimbing) and weapon == weapons.ranged){
+if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady == true and (state != states.hclimbing) and state != states.dead and weapon == weapons.ranged){
 	if(gamepad_button_check(0, gp_padu)){
 		BulH = 0;
 		BulV = -20;
@@ -252,6 +254,14 @@ if(stamina <= 100){
 	stamina += 0.5
 }
 
+/*Death setter*/
+
+if(PlayHealth <= 0 and obj_hud.alarm[1] == -1){
+	obj_hud.alarm[1] = 120;	
+	global.loseyet = true;
+	state = states.dead;
+}
+
 /*TESTING FUNCTIONS*/
 
 if gamepad_button_check(0,gp_face4){
@@ -259,5 +269,6 @@ if gamepad_button_check(0,gp_face4){
 		show_debug_message(string(state));	
 		//show_debug_message(string(Move));	
 }
+
 
 
