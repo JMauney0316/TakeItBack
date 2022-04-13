@@ -19,7 +19,7 @@ var Move = MoveDir * MoveSpeed;
 
 
 //General Regular and Airborne Movement
-if state == states.regular or state == states.airborne {
+if (state == states.regular or state == states.airborne) and state != states.slash {
 	
 	
 	if(instance_place(x+(Move),y,obj_ground)){
@@ -38,7 +38,7 @@ if state == states.regular or state == states.airborne {
 
 
 //Crouch
-if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing {
+if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash {
 		sprite_index = spr_crouch;
 		y += 16
 		if(state != states.airborne){
@@ -47,7 +47,7 @@ if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd))
 		show_debug_message("Crouching");
 } 
 
-if (keyboard_check_released(vk_down) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing{
+if (keyboard_check_released(vk_down) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
 	if(state == states.crouch){
 		sprite_index = spr_player;
 		state = states.regular;
@@ -83,7 +83,7 @@ if(instance_place(x,y+vspeed,obj_ground)){
 }
 
 
-floor(y);
+//y = floor(y);
 
 //Grvity 2.0
 if instance_place(x,y+1,obj_ground){
@@ -162,7 +162,9 @@ if state == states.hclimbing {
 
 
 //Sword Slash (Incomplete)
-if((keyboard_check_pressed(vk_enter) or gamepad_button_check(0,gp_face3)) and swordReady == true and state != states.hclimbing and weapon == weapons.sword){
+if((keyboard_check_pressed(vk_enter) or gamepad_button_check_pressed(0,gp_face3)) and swordReady == true and state != states.hclimbing and state != states.crouch and weapon == weapons.sword){
+	lastState = state;
+	state = states.slash
 	instance_create_layer(x+(image_xscale * sprite_xoffset),y,"Instances",obj_slash)
 	swordReady = false;
 	alarm[2] = 10;
@@ -175,7 +177,10 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady
 	if(gamepad_button_check(0, gp_padu)){
 		BulH = 0;
 		BulV = -20;
-		instance_create_layer(x,y-(sprite_yoffset),"Instances",obj_regbullet)
+		if(stamina > 10){
+			instance_create_layer(x,y-(sprite_yoffset),"Instances",obj_regbullet)
+			stamina -= 10;
+		}
 	
 		//show_debug_message("Shooting Up");
 	
@@ -184,7 +189,10 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady
 	} else if(gamepad_button_check(0, gp_padd) and state = states.airborne){
 		BulH = 0;
 		BulV = 20;
-		instance_create_layer(x,y+(sprite_yoffset),"Instances",obj_regbullet)
+		if(stamina > 10){
+			instance_create_layer(x,y+(sprite_yoffset),"Instances",obj_regbullet)
+			stamina -= 10;
+		}
 	
 		//show_debug_message("Shooting Down");
 	
@@ -194,9 +202,16 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady
 		BulH = 20;
 		BulV = 0;
 		if(state == states.crouch){
-			instance_create_layer(x+(image_xscale * sprite_xoffset),y,"Instances",obj_regbullet)
+			if(stamina > 10){
+				instance_create_layer(x+(image_xscale * sprite_xoffset),y,"Instances",obj_regbullet)
+				stamina -= 10;
+			}
+			
 		} else {
-			instance_create_layer(x+(image_xscale * sprite_xoffset),y-15,"Instances",obj_regbullet)	
+			if(stamina > 10){
+				instance_create_layer(x+(image_xscale * sprite_xoffset),y-15,"Instances",obj_regbullet)	
+				stamina -= 10;
+			}
 		}
 		
 		shootReady = false;
@@ -232,12 +247,16 @@ if gamepad_button_check_pressed(0,gp_shoulderr) or keyboard_check_pressed(ord("R
 	weapon = weapons.ranged;	
 }
 
+//Stamina regen
+if(stamina <= 100){
+	stamina += 0.5
+}
 
 /*TESTING FUNCTIONS*/
 
 if gamepad_button_check(0,gp_face4){
 		//show_debug_message(string(x+sprite_xoffset));	
-		show_debug_message(string(vspeed));	
+		show_debug_message(string(state));	
 		//show_debug_message(string(Move));	
 }
 

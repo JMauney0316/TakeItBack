@@ -1,4 +1,4 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-instance_deactivate_object(obj_ground3);
+direction = point_direction(x, y, obj_player.x, obj_player.y);
+speed = 5;

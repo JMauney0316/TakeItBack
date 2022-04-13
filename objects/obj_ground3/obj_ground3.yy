@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_presentblock",
-    "path": "sprites/spr_presentblock/spr_presentblock.yy",
+    "name": "spr_pastblock",
+    "path": "sprites/spr_pastblock/spr_pastblock.yy",
   },
   "solid": true,
   "visible": true,
@@ -35,7 +35,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_ground2",
+  "name": "obj_ground3",
   "tags": [],
   "resourceType": "GMObject",
 }

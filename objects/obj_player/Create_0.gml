@@ -43,5 +43,10 @@ grv = 0.3;
 BulH = 10;
 BulV = 0;
 
+//Health
+PlayHealth = 3;
+
+//Stamina
+stamina = 100;
 
 

@@ -10,7 +10,9 @@ if(obj_ground2.group1 != true){
 */
 
 if(!instance_exists(obj_ground2)){
+instance_deactivate_object(obj_ground3)
 instance_activate_object(obj_ground2);
 } else {
 	instance_deactivate_object(obj_ground2);
+	instance_activate_object(obj_ground3);
 }
