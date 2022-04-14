@@ -7,7 +7,11 @@ for(var i = 0; i<obj_player.PlayHealth; i++){
 
 draw_healthbar(10, 25, 80, 35, obj_player.stamina, c_black, c_red, c_lime, 0, true, true);
 
-draw_text(90,20,string(obj_player.weapon))
+if(obj_player.weapon == weapons.ranged){
+	draw_text(90,20,"Plasma Shots")
+} else if(obj_player.weapon == weapons.sword){
+	draw_text(90,20,"Sword")
+}
 
 
 if(global.winyet == true){

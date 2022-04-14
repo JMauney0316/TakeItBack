@@ -35,10 +35,6 @@ weapon = weapons.ranged;
 //Movement Direction
 MoveDir = image_xscale;
 
-//Sets gravity
-vsp = 0;
-grv = 0.3;
-
 //Bullet variables
 BulH = 10;
 BulV = 0;

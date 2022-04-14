@@ -1,6 +1,5 @@
 {
   "resources": [
-    {"id":{"name":"obj_player2","path":"objects/obj_player2/obj_player2.yy",},"order":5,},
     {"id":{"name":"obj_regbullet","path":"objects/obj_regbullet/obj_regbullet.yy",},"order":2,},
     {"id":{"name":"spr_pastblock","path":"sprites/spr_pastblock/spr_pastblock.yy",},"order":8,},
     {"id":{"name":"spr_crouch","path":"sprites/spr_crouch/spr_crouch.yy",},"order":4,},

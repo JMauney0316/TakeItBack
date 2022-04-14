@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-
 GPLeft = keyboard_check(vk_left) or gamepad_button_check(0, gp_padl);
 GPRight = keyboard_check(vk_right) or gamepad_button_check(0, gp_padr);
 
@@ -27,13 +26,8 @@ if (state == states.regular or state == states.airborne) and state != states.sla
 				x += (sign(Move))
 		}
 		Move = 0
-	}
-	
-	
+	}	
 	x += Move
-	
-	//image_xscale = MoveDir;
-	
 }
 
 
@@ -102,32 +96,8 @@ if instance_place(x,y+1,obj_ground){
 }
 
 
-/*
-//Handles gravity
-if instance_place(x,y+1,obj_ground) and state != states.crouch {
-	gravity = 0;	
-	//vspeed = 0;
-	state = states.regular;
-	//show_debug_message("Returned to ground");
-} else {
-	if state != states.crouch and state != states.hclimbing{
-		gravity = 0.5;
-		state = states.airborne;
-		show_debug_message("Airborne instead");
-	}
-}
-*/
-
 //Climbing
 if (instance_place(x+MoveSpeed,y,obj_wall) or instance_place(x-MoveSpeed,y,obj_wall)) and state == states.airborne{
-	/*
-	if(instance_place(x+(Move),y,obj_ground)){
-		while(!instance_place(x+sign(Move),y,obj_ground)){
-				x += (sign(Move))
-		}
-		Move = 0
-	}
-	*/
 	state = states.hclimbing;
 	show_debug_message("Climb")
 }
