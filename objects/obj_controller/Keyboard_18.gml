@@ -26,14 +26,18 @@ if(keyboard_check_released(ord("6"))){
 }
 
 if(keyboard_check_released(ord("7"))){
-	instance_destroy(obj_enemy)	
+	instance_create_layer(obj_player.x + 10, obj_player.y - 30, "Instances", obj_armor)	
 }
 
 if(keyboard_check_released(ord("8"))){
-	instance_destroy(obj_enemy1)	
+	instance_destroy(obj_enemy)	
 }
 
 if(keyboard_check_released(ord("9"))){
+	instance_destroy(obj_enemy1)	
+}
+
+if(keyboard_check_released(ord("0"))){
 	obj_player.x = obj_wincond.x - 30
 	obj_player.y = obj_wincond.y
 }
