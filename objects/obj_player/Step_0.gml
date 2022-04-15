@@ -1,8 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-GPLeft = keyboard_check(vk_left) or gamepad_button_check(0, gp_padl);
-GPRight = keyboard_check(vk_right) or gamepad_button_check(0, gp_padr);
+GPLeft = keyboard_check(ord("A")) or gamepad_button_check(0, gp_padl);
+GPRight = keyboard_check(ord("D")) or gamepad_button_check(0, gp_padr);
 
 MoveDir = GPRight - GPLeft;
 
@@ -32,7 +32,7 @@ if (state == states.regular or state == states.airborne) and state != states.sla
 
 
 //Crouch
-if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash and state != states.dead {
+if (keyboard_check_pressed(ord("S")) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash and state != states.dead {
 		sprite_index = spr_crouch;
 		y += 16
 		if(state != states.airborne){
@@ -41,7 +41,7 @@ if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd))
 		show_debug_message("Crouching");
 } 
 
-if (keyboard_check_released(vk_down) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
+if (keyboard_check_released(ord("S")) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
 	if(state == states.crouch){
 		sprite_index = spr_player;
 		state = states.regular;
@@ -55,7 +55,7 @@ if (keyboard_check_released(vk_down) or gamepad_button_check_released(0, gp_padd
 
 
 //Handles Jumping
-if (keyboard_check(vk_up) or gamepad_button_check(0,gp_face1)) and instance_place(x,y+1,obj_ground) and state != states.airborne and !gamepad_button_check(0,gp_padd) {
+if (keyboard_check(ord("W")) or gamepad_button_check(0,gp_face1)) and instance_place(x,y+1,obj_ground) and state != states.airborne and !gamepad_button_check(0,gp_padd) {
 	show_debug_message(string(state))	
 	if(state == states.crouch){
 		y -= 15
@@ -211,7 +211,7 @@ if(state == states.roll){
 
 
 //Handles Swapping Weapons
-if gamepad_button_check_pressed(0,gp_shoulderl) or keyboard_check_pressed(ord("S")){
+if gamepad_button_check_pressed(0,gp_shoulderl) or keyboard_check_pressed(ord("E")){
 	weapon = weapons.sword;	
 }
 
