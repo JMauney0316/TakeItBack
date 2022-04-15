@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"obj_regbullet","path":"objects/obj_regbullet/obj_regbullet.yy",},"order":2,},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":2,},
     {"id":{"name":"spr_pastblock","path":"sprites/spr_pastblock/spr_pastblock.yy",},"order":8,},
     {"id":{"name":"spr_crouch","path":"sprites/spr_crouch/spr_crouch.yy",},"order":4,},
     {"id":{"name":"spr_enemy1Stand","path":"sprites/spr_enemy1Stand/spr_enemy1Stand.yy",},"order":0,},
@@ -16,7 +17,9 @@
     {"id":{"name":"spr_maxLives","path":"sprites/spr_maxLives/spr_maxLives.yy",},"order":16,},
     {"id":{"name":"spr_presentblock","path":"sprites/spr_presentblock/spr_presentblock.yy",},"order":7,},
     {"id":{"name":"spr_slash","path":"sprites/spr_slash/spr_slash.yy",},"order":6,},
+    {"id":{"name":"obj_armor","path":"objects/obj_armor/obj_armor.yy",},"order":16,},
     {"id":{"name":"tl_enemy1","path":"timelines/tl_enemy1/tl_enemy1.yy",},"order":0,},
+    {"id":{"name":"spr_armor","path":"sprites/spr_armor/spr_armor.yy",},"order":17,},
     {"id":{"name":"obj_healthPack","path":"objects/obj_healthPack/obj_healthPack.yy",},"order":14,},
     {"id":{"name":"obj_ground3","path":"objects/obj_ground3/obj_ground3.yy",},"order":9,},
     {"id":{"name":"spr_enemy","path":"sprites/spr_enemy/spr_enemy.yy",},"order":5,},
@@ -32,6 +35,7 @@
     {"id":{"name":"spr_enemybul","path":"sprites/spr_enemybul/spr_enemybul.yy",},"order":11,},
     {"id":{"name":"obj_hpUp","path":"objects/obj_hpUp/obj_hpUp.yy",},"order":15,},
     {"id":{"name":"spr_winball","path":"sprites/spr_winball/spr_winball.yy",},"order":13,},
+    {"id":{"name":"spr_shield","path":"sprites/spr_shield/spr_shield.yy",},"order":18,},
     {"id":{"name":"obj_enemybullet","path":"objects/obj_enemybullet/obj_enemybullet.yy",},"order":0,},
     {"id":{"name":"spr_hpPack","path":"sprites/spr_hpPack/spr_hpPack.yy",},"order":14,},
     {"id":{"name":"obj_enemyturret","path":"objects/obj_enemyturret/obj_enemyturret.yy",},"order":1,},
@@ -41,6 +45,7 @@
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"order":3,},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},"order":6,},
     {"id":{"name":"obj_enemy1","path":"objects/obj_enemy1/obj_enemy1.yy",},"order":0,},
+    {"id":{"name":"obj_shield","path":"objects/obj_shield/obj_shield.yy",},"order":17,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
@@ -56,6 +61,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"roomId":{"name":"RoomStart","path":"rooms/RoomStart/RoomStart.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
