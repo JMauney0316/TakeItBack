@@ -41,6 +41,7 @@ BulV = 0;
 
 //Health
 PlayHealth = 3;
+maxPlayHealth = 3
 
 //Stamina
 stamina = 100;
