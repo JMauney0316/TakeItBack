@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"obj_regbullet","path":"objects/obj_regbullet/obj_regbullet.yy",},"order":2,},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":2,},
     {"id":{"name":"spr_pastblock","path":"sprites/spr_pastblock/spr_pastblock.yy",},"order":8,},
     {"id":{"name":"spr_crouch","path":"sprites/spr_crouch/spr_crouch.yy",},"order":4,},
     {"id":{"name":"spr_enemy1Stand","path":"sprites/spr_enemy1Stand/spr_enemy1Stand.yy",},"order":0,},
@@ -59,6 +60,7 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"RoomStart","path":"rooms/RoomStart/RoomStart.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
