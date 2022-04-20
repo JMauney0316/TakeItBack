@@ -34,6 +34,8 @@ weapon = weapons.ranged;
 
 //Movement Direction
 MoveDir = image_xscale;
+moving = false;
+//sprite_index = spr_scaletest;	
 
 //Bullet variables
 BulH = 10;
@@ -41,7 +43,11 @@ BulV = 0;
 
 //Health
 PlayHealth = 3;
-maxPlayHealth = 3
+maxPlayHealth = 3;
+hurt = false;
+
+//Climbing check
+Climbmove = false;
 
 //Stamina
 stamina = 100;

@@ -14,6 +14,11 @@ if(MoveDir != 0 and state != states.dead){
 
 var Move = MoveDir * MoveSpeed; 
 
+if(Move != 0){
+	moving = true;	
+} else {
+	moving = false;	
+}
 
 
 
@@ -43,7 +48,7 @@ if (keyboard_check_pressed(ord("S")) or gamepad_button_check_pressed(0, gp_padd)
 
 if (keyboard_check_released(ord("S")) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
 	if(state == states.crouch){
-		sprite_index = spr_player;
+		sprite_index = spr_scaletest;
 		state = states.regular;
 		y -= 16
 		show_debug_message("Uncrouching");
@@ -116,12 +121,13 @@ if state == states.hclimbing {
 	}
 	
 	if (gamepad_button_check(0,gp_padu) or keyboard_check(vk_up)){
-		vspeed = -3	
+		vspeed = -3;	
 	}
 	
 	if (gamepad_button_check(0,gp_padd) or keyboard_check(vk_down)) and (!instance_place(x,y+1,obj_ground)){
-		vspeed = 3	
+		vspeed = 3;	
 	}
+	
 	
 	if (gamepad_button_check_pressed(0,gp_face1) or keyboard_check(vk_space)) and (((gamepad_button_check(0,gp_padl) or keyboard_check(vk_left)) or (gamepad_button_check(0,gp_padr) or keyboard_check(vk_right)))){
 		show_debug_message("Leaving Wall")
@@ -130,7 +136,6 @@ if state == states.hclimbing {
 	}
 	
 }
-
 
 
 //Sword Slash (Incomplete)
@@ -181,7 +186,7 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady
 			
 		} else {
 			if(stamina > 10){
-				instance_create_layer(x+(image_xscale * sprite_xoffset),y-15,"Instances",obj_regbullet)	
+				instance_create_layer(x+(image_xscale * 15),y-8,"Instances",obj_regbullet)	
 				stamina -= 10;
 			}
 		}
@@ -232,11 +237,21 @@ if(PlayHealth <= 0 and obj_hud.alarm[1] == -1){
 	state = states.dead;
 }
 
+
+clamp(vspeed, 0, 10);
+
+
+
+/*Hurt Shader Stuff*/
+if(hurt == true and alarm[3] == -1){
+	alarm[3] = 60	
+}
+
 /*TESTING FUNCTIONS*/
 
 if gamepad_button_check(0,gp_face4){
 		//show_debug_message(string(x+sprite_xoffset));	
-		show_debug_message(string(state));	
+		show_debug_message(string(Climbmove));	
 		//show_debug_message(string(Move));	
 }
 

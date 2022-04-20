@@ -1,10 +1,18 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+/*
 var px1 = (obj_player.x-(obj_player.sprite_width/2)+2)
 var py1 = (obj_player.y-(obj_player.sprite_height/2) + 1)
 var px2 = (obj_player.x+(obj_player.sprite_width/2) - 1)
 var py2 = (obj_player.y+(obj_player.sprite_height/2) - 1)
+*/
+
+var px1 = (obj_player.bbox_left+2)
+var py1 = (obj_player.bbox_top + 1)
+var px2 = (obj_player.bbox_right- 1)
+var py2 = (obj_player.bbox_bottom - 1)
+
 var x1 = (x-(sprite_width/2))+sprite_width/2
 var y1 = (y-(sprite_height/2))+sprite_height/2
 var x2 = (x+(sprite_width/2))+((sprite_width/2)) - 2
