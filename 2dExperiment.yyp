@@ -68,7 +68,7 @@
     {"id":{"name":"spr_scaletest3","path":"sprites/spr_scaletest3/spr_scaletest3.yy",},"order":5,},
     {"id":{"name":"obj_shield","path":"objects/obj_shield/obj_shield.yy",},"order":17,},
     {"id":{"name":"ts_Env1Test","path":"tilesets/ts_Env1Test/ts_Env1Test.yy",},"order":0,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"Testing","path":"rooms/Testing/Testing.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
@@ -83,10 +83,10 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"BossRoom","path":"rooms/BossRoom/BossRoom.yy",},},
-    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"roomId":{"name":"RoomStart","path":"rooms/RoomStart/RoomStart.yy",},},
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"roomId":{"name":"BossRoom","path":"rooms/BossRoom/BossRoom.yy",},},
+    {"roomId":{"name":"Testing","path":"rooms/Testing/Testing.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
