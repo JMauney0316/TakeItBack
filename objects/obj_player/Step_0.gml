@@ -242,10 +242,10 @@ clamp(vspeed, 0, 10);
 
 
 
-/*Hurt Shader Stuff*/
+/*Hurt Shader Stuff*//*
 if(hurt == true and alarm[3] == -1){
 	alarm[3] = 60	
-}
+}*/
 
 /*TESTING FUNCTIONS*/
 
