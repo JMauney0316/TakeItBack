@@ -7,7 +7,7 @@
     {"id":{"name":"spr_pastblock","path":"sprites/spr_pastblock/spr_pastblock.yy",},"order":8,},
     {"id":{"name":"spr_crouch","path":"sprites/spr_crouch/spr_crouch.yy",},"order":4,},
     {"id":{"name":"sh_hurt","path":"shaders/sh_hurt/sh_hurt.yy",},"order":0,},
-    {"id":{"name":"spr_enemy1Stand","path":"sprites/spr_enemy1Stand/spr_enemy1Stand.yy",},"order":0,},
+    {"id":{"name":"spr_enemy1","path":"sprites/spr_enemy1/spr_enemy1.yy",},"order":0,},
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"order":4,},
     {"id":{"name":"obj_ground2","path":"objects/obj_ground2/obj_ground2.yy",},"order":7,},
     {"id":{"name":"tl_enemy2","path":"timelines/tl_enemy2/tl_enemy2.yy",},"order":1,},
@@ -40,6 +40,7 @@
     {"id":{"name":"spr_climbing","path":"sprites/spr_climbing/spr_climbing.yy",},"order":13,},
     {"id":{"name":"spr_ground","path":"sprites/spr_ground/spr_ground.yy",},"order":1,},
     {"id":{"name":"spr_hpUp","path":"sprites/spr_hpUp/spr_hpUp.yy",},"order":15,},
+    {"id":{"name":"game_music","path":"sounds/game_music/game_music.yy",},"order":0,},
     {"id":{"name":"obj_wincond","path":"objects/obj_wincond/obj_wincond.yy",},"order":13,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"spr_bullet","path":"sprites/spr_bullet/spr_bullet.yy",},"order":3,},
@@ -83,10 +84,10 @@
     "children": [],
   },
   "RoomOrderNodes": [
+    {"roomId":{"name":"Testing","path":"rooms/Testing/Testing.yy",},},
     {"roomId":{"name":"RoomStart","path":"rooms/RoomStart/RoomStart.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"roomId":{"name":"BossRoom","path":"rooms/BossRoom/BossRoom.yy",},},
-    {"roomId":{"name":"Testing","path":"rooms/Testing/Testing.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
