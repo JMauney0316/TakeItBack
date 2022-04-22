@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 if(stop == false){
-	var Move = 3;
+    var Move = 3;
 
 	if(instance_place(x,y+1,obj_ground) and !instance_place(x+(sign(MoveDir) * Move),y,obj_ground)){
 		Move *= MoveDir;
@@ -12,9 +12,18 @@ if(stop == false){
 
 
 	if(instance_place(x+(sign(MoveDir) * Move),y,obj_ground)){
-		MoveDir *= -1	
+		MoveDir = -1 * sign(MoveDir)
+		//image_xscale *= 1
 	}
 }
+	
+if(instance_place(x,y+vspeed,obj_ground)){
+	while(!instance_place(x,y+sign(vspeed),obj_ground)){
+		y += 1	
+	}
+	vspeed = 0;
+}
+	
 	
 
 if(instance_place(x,y+1,obj_ground)){
@@ -26,3 +35,5 @@ if(instance_place(x,y+1,obj_ground)){
 if(enemyHealth <= 0){
 	instance_destroy();
 }
+
+show_debug_message(string(sign(MoveDir)))

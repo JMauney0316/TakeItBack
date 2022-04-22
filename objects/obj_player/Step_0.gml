@@ -38,8 +38,8 @@ if (state == states.regular or state == states.airborne) and state != states.sla
 
 //Crouch
 if (keyboard_check_pressed(ord("S")) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash and state != states.dead {
-		sprite_index = spr_crouch;
-		y += 16
+		//sprite_index = spr_crouch;
+		//y += 16
 		if(state != states.airborne){
 			state = states.crouch;
 		}
@@ -48,9 +48,9 @@ if (keyboard_check_pressed(ord("S")) or gamepad_button_check_pressed(0, gp_padd)
 
 if (keyboard_check_released(ord("S")) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
 	if(state == states.crouch){
-		sprite_index = spr_scaletest;
+		//sprite_index = spr_scaletest;
 		state = states.regular;
-		y -= 16
+		//y -= 16
 		show_debug_message("Uncrouching");
 	}
 	
@@ -180,7 +180,7 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady
 		BulV = 0;
 		if(state == states.crouch){
 			if(stamina > 10){
-				instance_create_layer(x+(image_xscale * sprite_xoffset),y,"Instances",obj_regbullet)
+				instance_create_layer(x+(image_xscale * 24),y + 8,"Instances",obj_regbullet)
 				stamina -= 10;
 			}
 			

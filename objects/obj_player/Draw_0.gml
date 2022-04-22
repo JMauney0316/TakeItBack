@@ -15,6 +15,13 @@ if(state == states.hclimbing and vspeed == 0){
 	sprite_index = spr_climbing;	
 }
 
+//Crouch animations
+if(state == states.crouch and shootReady == true){
+	sprite_index = spr_crouchidle;	
+} else if (state == states.crouch and shootReady == false){
+	sprite_index = spr_crouchshoot	
+}
+
 
 //Standing still animations
 if(state == states.regular and moving == false){

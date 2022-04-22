@@ -12,7 +12,8 @@ if(distance_to_object(obj_player) > AggroRange){
 
 
 		if(instance_place(x+(sign(MoveDir) * Move),y,obj_ground) or !instance_place(x+(sign(MoveDir) * Move),y+1,obj_ground)){
-			MoveDir *= -1	
+			//MoveDir *= -1	
+			MoveDir = -1 * sign(MoveDir)
 		}
 	
 } else {	
@@ -31,7 +32,7 @@ if(instance_place(x,y+1,obj_ground)){
 		gravity = 0;
 	} else {
 		gravity = 0.5;
-	}
+}
 	
 if(enemy1Health <= 0){
 	instance_destroy();
