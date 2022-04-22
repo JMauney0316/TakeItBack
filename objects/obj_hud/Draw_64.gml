@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+audio_play_sound(game_music, 50, true)
+
 for(var i = 0; i<obj_player.maxPlayHealth; i++){
 	draw_sprite(spr_maxLives, 0, (15+30*i), 10)
 }
