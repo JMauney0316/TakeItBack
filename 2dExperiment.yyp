@@ -71,6 +71,7 @@
     {"id":{"name":"spr_enemy1Walk","path":"sprites/spr_enemy1Walk/spr_enemy1Walk.yy",},"order":1,},
     {"id":{"name":"spr_crouchidle","path":"sprites/spr_crouchidle/spr_crouchidle.yy",},"order":14,},
     {"id":{"name":"obj_enemy1","path":"objects/obj_enemy1/obj_enemy1.yy",},"order":0,},
+    {"id":{"name":"SecondRoom","path":"rooms/SecondRoom/SecondRoom.yy",},"order":4,},
     {"id":{"name":"spr_scaletest2","path":"sprites/spr_scaletest2/spr_scaletest2.yy",},"order":4,},
     {"id":{"name":"ts_Env1Test2","path":"tilesets/ts_Env1Test2/ts_Env1Test2.yy",},"order":1,},
     {"id":{"name":"spr_scaletest3","path":"sprites/spr_scaletest3/spr_scaletest3.yy",},"order":5,},
@@ -95,6 +96,7 @@
     {"roomId":{"name":"RoomStart","path":"rooms/RoomStart/RoomStart.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"roomId":{"name":"BossRoom","path":"rooms/BossRoom/BossRoom.yy",},},
+    {"roomId":{"name":"SecondRoom","path":"rooms/SecondRoom/SecondRoom.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
