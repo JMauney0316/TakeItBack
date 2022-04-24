@@ -1,6 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//Collision for vertical and horizontal while checks were loosely inspired by Shaun Spalding's seen at
+//  https://www.youtube.com/watch?v=izNXbMdu348
+
 GPLeft = keyboard_check(ord("A")) or gamepad_button_check(0, gp_padl);
 GPRight = keyboard_check(ord("D")) or gamepad_button_check(0, gp_padr);
 
@@ -115,7 +118,7 @@ if state == states.hclimbing {
 		state = states.regular
 	}
 	
-	if(!instance_place(x+lastDir,y-sprite_yoffset,obj_wall)){
+	if(!instance_place(x+lastDir,y,obj_wall)){
 		state = states.airborne;
 		vspeed = -(JumpHeight); 
 	}
@@ -186,16 +189,16 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady
 			
 		} else {
 			if(stamina > 10){
-				instance_create_layer(x+(image_xscale * 15),y-8,"Instances",obj_regbullet)	
+				instance_create_layer(x+(image_xscale * 24),y-5,"Instances",obj_regbullet)	
 				stamina -= 10;
 			}
 		}
 		
 		shootReady = false;
 		alarm[0] = 10;
-		show_debug_message("Y: " + string(y));	
-			show_debug_message("X: " + string(x));	
-		//show_debug_message("Shooting Horizontally");		
+		//show_debug_message("Y: " + string(y));	
+		//show_debug_message("X: " + string(x));	
+		//show_debug_message(string(obj_bosscontroller.at));		
 	}
 }
 
@@ -228,6 +231,14 @@ if gamepad_button_check_pressed(0,gp_shoulderr) or keyboard_check_pressed(ord("R
 if(stamina <= 100){
 	stamina += 0.5
 }
+
+
+//Health
+if(hurt == true and alarm[3] == -1){
+	alarm[3] = 30;	
+}
+
+
 
 /*Death setter*/
 

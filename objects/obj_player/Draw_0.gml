@@ -29,8 +29,14 @@ if(state == states.regular and moving == false){
 }
 
 if(state == states.regular and moving == false and swordReady = false){
+	
 	sprite_index = spr_slashingtop;	
 	draw_sprite_ext(spr_standingbottom, image_index, x,y+1,obj_player.image_xscale, 1, 0, c_white, 1);
+	
+	/*
+	sprite_index = spr_standingbottom;	
+	draw_sprite_ext(spr_slashingtop, image_index, x,y+1,obj_player.image_xscale, 1, 0, c_white, 1);
+	*/
 }
 
 if(state == states.regular and moving == false and shootReady = false){
@@ -54,9 +60,14 @@ if(state == states.regular and moving == false and shootReady = false){
 
 //Moving animations
 if(state == states.regular and moving == true and swordReady = false and shootReady = true){
+	
 	sprite_index = spr_runbottom;
-	//draw_sprite(spr_slashingtop,image_index,x,y);
 	draw_sprite_ext(spr_slashingtop, image_index, x,y+1,obj_player.image_xscale, 1, 0, c_white, 1);
+	
+	/*
+	sprite_index = spr_slashingtop;
+	draw_sprite_ext(spr_runbottom, image_index, x,y+1,obj_player.image_xscale, 1, 0, c_white, 1);
+	*/
 }
 
 if(state == states.regular and moving == true and shootReady = false and swordReady = true){
@@ -72,6 +83,11 @@ if(state == states.regular and moving == true and shootReady = false and swordRe
 if(state == states.regular and moving == true and swordReady = true and shootReady = true){
 	sprite_index = spr_scaletest2;
 	//draw_sprite(spr_slashingtop,image_index,x,y);
+}
+
+if(state == states.dead){
+	//draw_sprite(spr_Explosion, image_index, x,y)	
+	sprite_index = spr_Explosion;
 }
 
 

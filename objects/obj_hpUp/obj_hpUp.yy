@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_hpUp",
-    "path": "sprites/spr_hpUp/spr_hpUp.yy",
+    "name": "spr_healthUpgrade",
+    "path": "sprites/spr_healthUpgrade/spr_healthUpgrade.yy",
   },
   "solid": false,
   "visible": true,
