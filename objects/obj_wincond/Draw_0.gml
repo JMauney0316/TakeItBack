@@ -6,4 +6,6 @@ if(winner == true){
 }
 */
 
-draw_self();
+if(alarm[0] == -1){
+	draw_self();
+}

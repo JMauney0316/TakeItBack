@@ -42,3 +42,7 @@ if(enemy1Health <= 0){
 if(hithurt == true and alarm[0] == -1){
 	alarm[0] = 5;	
 }
+
+if(timeline_running == false){
+	stateOfx = false;	
+}

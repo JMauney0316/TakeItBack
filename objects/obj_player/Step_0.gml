@@ -4,8 +4,8 @@
 //Collision for vertical and horizontal while checks were loosely inspired by Shaun Spalding's seen at
 //  https://www.youtube.com/watch?v=izNXbMdu348
 
-GPLeft = keyboard_check(ord("A")) or gamepad_button_check(0, gp_padl);
-GPRight = keyboard_check(ord("D")) or gamepad_button_check(0, gp_padr);
+GPLeft = keyboard_check(vk_left) or gamepad_button_check(0, gp_padl);
+GPRight = keyboard_check(vk_right) or gamepad_button_check(0, gp_padr);
 
 MoveDir = GPRight - GPLeft;
 
@@ -40,7 +40,7 @@ if (state == states.regular or state == states.airborne) and state != states.sla
 
 
 //Crouch
-if (keyboard_check_pressed(ord("S")) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash and state != states.dead {
+if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash and state != states.dead {
 		//sprite_index = spr_crouch;
 		//y += 16
 		if(state != states.airborne){
@@ -49,7 +49,7 @@ if (keyboard_check_pressed(ord("S")) or gamepad_button_check_pressed(0, gp_padd)
 		show_debug_message("Crouching");
 } 
 
-if (keyboard_check_released(ord("S")) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
+if (keyboard_check_released(vk_down) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
 	if(state == states.crouch){
 		//sprite_index = spr_scaletest;
 		state = states.regular;
@@ -63,7 +63,7 @@ if (keyboard_check_released(ord("S")) or gamepad_button_check_released(0, gp_pad
 
 
 //Handles Jumping
-if (keyboard_check(ord("W")) or gamepad_button_check(0,gp_face1)) and instance_place(x,y+1,obj_ground) and state != states.airborne and !gamepad_button_check(0,gp_padd) {
+if (keyboard_check(vk_space) or gamepad_button_check(0,gp_face1)) and instance_place(x,y+1,obj_ground) and state != states.airborne and !gamepad_button_check(0,gp_padd) {
 	show_debug_message(string(state))	
 	if(state == states.crouch){
 		y -= 15
@@ -154,7 +154,7 @@ if((keyboard_check_pressed(vk_enter) or gamepad_button_check_pressed(0,gp_face3)
 
 //Shooting (Mostly Complete)
 if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady == true and (state != states.hclimbing) and state != states.dead and weapon == weapons.ranged){
-	if(gamepad_button_check(0, gp_padu)){
+	if(gamepad_button_check(0, gp_padu) or (keyboard_check(vk_up))){
 		BulH = 0;
 		BulV = -20;
 		if(stamina > 10){
@@ -166,7 +166,7 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady
 	
 		shootReady = false;
 		alarm[0] = 10;	
-	} else if(gamepad_button_check(0, gp_padd) and state = states.airborne){
+	} else if((gamepad_button_check(0, gp_padd) or keyboard_check(vk_down)) and state = states.airborne){
 		BulH = 0;
 		BulV = 20;
 		if(stamina > 10){
@@ -201,21 +201,6 @@ if((keyboard_check(vk_enter) or gamepad_button_check(0,gp_face3)) and shootReady
 		//show_debug_message(string(obj_bosscontroller.at));		
 	}
 }
-
-
-//Roll (Incomplete)
-if(state == states.regular){
-	if(gamepad_button_check_pressed(0,gp_face1) and gamepad_button_check(0,gp_padd)){
-		state = states.roll
-		event_user(0);
-		show_debug_message("ROLLING")
-	}
-}
-
-if(state == states.roll){
-	x += 10 * MoveDir	
-}
-
 
 
 //Handles Swapping Weapons

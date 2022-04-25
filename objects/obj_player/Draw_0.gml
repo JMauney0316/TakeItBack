@@ -40,7 +40,7 @@ if(state == states.regular and moving == false and swordReady = false){
 }
 
 if(state == states.regular and moving == false and shootReady = false){
-	if (gamepad_button_check(0, gp_padu)){
+	if (gamepad_button_check(0, gp_padu) or keyboard_check(vk_up)){
 		/*
 	sprite_index = spr_shootingvert;
     draw_sprite_ext(spr_standingbottom, image_index, x,y+1,obj_player.image_xscale, 1, 0, c_white, 1);
@@ -71,7 +71,7 @@ if(state == states.regular and moving == true and swordReady = false and shootRe
 }
 
 if(state == states.regular and moving == true and shootReady = false and swordReady = true){
-		if (gamepad_button_check(0, gp_padu)){
+		if (gamepad_button_check(0, gp_padu) or keyboard_check(vk_up)){
 			sprite_index = spr_runbottom;
 			draw_sprite_ext(spr_shootingvert, image_index, x,y-3,obj_player.image_xscale, 1, 0, c_white, 1);
 		} else {
@@ -109,10 +109,6 @@ var py1 = (obj_player.y-(obj_player.sprite_height/2) + 1)
 var px2 = (obj_player.x+(obj_player.sprite_width/2) - 1)
 var py2 = (obj_player.y+(obj_player.sprite_height/2) - 1)
 */
-var px1 = (bbox_left+2)
-var py1 = (bbox_top + 1)
-var px2 = (bbox_right- 1)
-var py2 = (bbox_bottom - 1)
 
 //draw_rectangle(px1,py1,px2,py2,false);
 

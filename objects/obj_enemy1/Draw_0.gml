@@ -14,6 +14,12 @@ if(stateOfx = false){
 	} else if (MoveDir == -1){
 		image_xscale = -1;
 	}
+} else {
+	if(x >= obj_player.x){
+		image_xscale = -1
+	} else if(x < obj_player.x) {
+		image_xscale = 1
+	}
 }
 
 
