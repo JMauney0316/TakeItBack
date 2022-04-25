@@ -6,11 +6,11 @@ if(keyboard_check_released(ord("1"))){
 }
 
 if(keyboard_check_released(ord("2"))){
-	obj_player.PlayHealth += 5	
+	lives += 5	
 }
 
 if(keyboard_check_released(ord("3"))){
-	obj_player.PlayHealth -= 2	
+	lives -= 2	
 }
 
 if(keyboard_check_released(ord("4"))){

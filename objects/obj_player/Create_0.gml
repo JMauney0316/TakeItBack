@@ -42,7 +42,7 @@ BulH = 10;
 BulV = 0;
 
 //Health
-PlayHealth = 3;
+//PlayHealth = 3;
 maxPlayHealth = 3;
 hurt = false;
 

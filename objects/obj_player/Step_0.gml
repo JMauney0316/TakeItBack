@@ -4,8 +4,8 @@
 //Collision for vertical and horizontal while checks were loosely inspired by Shaun Spalding's seen at
 //  https://www.youtube.com/watch?v=izNXbMdu348
 
-GPLeft = keyboard_check(vk_left) or gamepad_button_check(0, gp_padl);
-GPRight = keyboard_check(vk_right) or gamepad_button_check(0, gp_padr);
+GPLeft = keyboard_check(ord("A")) or gamepad_button_check(0, gp_padl);
+GPRight = keyboard_check(ord("D")) or gamepad_button_check(0, gp_padr);
 
 MoveDir = GPRight - GPLeft;
 
@@ -40,7 +40,7 @@ if (state == states.regular or state == states.airborne) and state != states.sla
 
 
 //Crouch
-if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash and state != states.dead {
+if (keyboard_check_pressed(ord("S")) or gamepad_button_check_pressed(0, gp_padd)) and state != states.airborne and state != states.hclimbing and state != states.slash and state != states.dead {
 		//sprite_index = spr_crouch;
 		//y += 16
 		if(state != states.airborne){
@@ -49,7 +49,7 @@ if (keyboard_check_pressed(vk_down) or gamepad_button_check_pressed(0, gp_padd))
 		show_debug_message("Crouching");
 } 
 
-if (keyboard_check_released(vk_down) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
+if (keyboard_check_released(ord("S")) or gamepad_button_check_released(0, gp_padd)) and state != states.hclimbing and state != states.slash{
 	if(state == states.crouch){
 		//sprite_index = spr_scaletest;
 		state = states.regular;
@@ -229,7 +229,7 @@ if(hurt == true and alarm[3] == -1){
 
 /*Death setter*/
 
-if(PlayHealth <= 0 and obj_hud.alarm[1] == -1){
+if(lives <= 0 and obj_hud.alarm[1] == -1){
 	obj_hud.alarm[1] = 120;	
 	global.loseyet = true;
 	state = states.dead;

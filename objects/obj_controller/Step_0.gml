@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 
-if(keyboard_check_pressed(vk_alt) or gamepad_button_check_pressed(0,gp_face2)){
+if(keyboard_check_pressed(vk_rshift) or gamepad_button_check_pressed(0,gp_face2)){
 	
 	if(!instance_exists(obj_ground2)){
 		layer_set_visible("TS_Present", true);
