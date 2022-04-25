@@ -69,6 +69,7 @@
     {"id":{"name":"spr_slashingtop","path":"sprites/spr_slashingtop/spr_slashingtop.yy",},"order":7,},
     {"id":{"name":"spr_shootingvert","path":"sprites/spr_shootingvert/spr_shootingvert.yy",},"order":11,},
     {"id":{"name":"spr_standingbottom","path":"sprites/spr_standingbottom/spr_standingbottom.yy",},"order":9,},
+    {"id":{"name":"SecondRoom","path":"rooms/SecondRoom/SecondRoom.yy",},"order":4,},
     {"id":{"name":"obj_bossDoor","path":"objects/obj_bossDoor/obj_bossDoor.yy",},"order":4,},
     {"id":{"name":"spr_winball","path":"sprites/spr_winball/spr_winball.yy",},"order":13,},
     {"id":{"name":"spr_shield","path":"sprites/spr_shield/spr_shield.yy",},"order":18,},
@@ -114,6 +115,7 @@
     {"roomId":{"name":"BossRoom","path":"rooms/BossRoom/BossRoom.yy",},},
     {"roomId":{"name":"Testing","path":"rooms/Testing/Testing.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
+    {"roomId":{"name":"SecondRoom","path":"rooms/SecondRoom/SecondRoom.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
