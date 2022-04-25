@@ -9,3 +9,6 @@ timeline_running = true;
 stop = false;
 
 enemyHealth = 3;
+
+//Used for shaders
+hithurt = false;

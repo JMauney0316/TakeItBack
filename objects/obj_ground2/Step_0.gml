@@ -8,10 +8,12 @@ var px2 = (obj_player.x+(obj_player.sprite_width/2) - 1)
 var py2 = (obj_player.y+(obj_player.sprite_height/2) - 1)
 */
 
+//Player box
 var px1 = (obj_player.bbox_left+2)
 var py1 = (obj_player.bbox_top + 1)
 var px2 = (obj_player.bbox_right- 1)
 var py2 = (obj_player.bbox_bottom - 1)
+
 
 var x1 = (x-(sprite_width/2))+sprite_width/2
 var y1 = (y-(sprite_height/2))+sprite_height/2
@@ -35,4 +37,9 @@ if(rectangle_in_rectangle(px1,py1,px2,py2, x1, y1, x2, y2)){
 	show_debug_message("Inside block, should now die")	
 	show_debug_message(string(x+32))
 	show_debug_message(string(obj_player.x-sprite_width/2))
+}
+
+var enem1 = collision_rectangle(x1,y1,x2,y2, obj_enemy, false, true)
+if enem1 != noone {
+	with (enem1) instance_destroy();	
 }

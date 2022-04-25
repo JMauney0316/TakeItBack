@@ -36,4 +36,8 @@ if(enemyHealth <= 0){
 	instance_destroy();
 }
 
-show_debug_message(string(sign(MoveDir)))
+//show_debug_message(string(sign(MoveDir)))
+
+if(hithurt == true and alarm[0] == -1){
+	alarm[0] = 5;	
+}

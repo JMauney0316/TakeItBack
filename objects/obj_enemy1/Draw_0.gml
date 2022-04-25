@@ -16,4 +16,12 @@ if(stateOfx = false){
 	}
 }
 
-draw_self()
+
+if(hithurt == true){
+	shader_set(sh_enemyflash);
+	draw_self();
+	shader_reset();
+} else {
+	draw_self();
+}
+

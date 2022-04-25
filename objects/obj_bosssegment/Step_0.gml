@@ -161,6 +161,6 @@ if(resetCond == true){
 
 //Shader flashes
 
-if(hithurt == true and alarm[3] == -1){
-	alarm[3] = 10;	
+if(hithurt == true and alarm[2] == -1){
+	alarm[2] = 5;	
 }

@@ -110,9 +110,9 @@
     "children": [],
   },
   "RoomOrderNodes": [
+    {"roomId":{"name":"RoomStart","path":"rooms/RoomStart/RoomStart.yy",},},
     {"roomId":{"name":"BossRoom","path":"rooms/BossRoom/BossRoom.yy",},},
     {"roomId":{"name":"Testing","path":"rooms/Testing/Testing.yy",},},
-    {"roomId":{"name":"RoomStart","path":"rooms/RoomStart/RoomStart.yy",},},
     {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
   ],
   "Folders": [

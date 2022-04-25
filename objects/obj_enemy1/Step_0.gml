@@ -37,3 +37,8 @@ if(instance_place(x,y+1,obj_ground)){
 if(enemy1Health <= 0){
 	instance_destroy();
 }
+
+//Shaders
+if(hithurt == true and alarm[0] == -1){
+	alarm[0] = 5;	
+}

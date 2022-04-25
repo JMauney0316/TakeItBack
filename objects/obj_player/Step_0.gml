@@ -79,7 +79,7 @@ if (keyboard_check(ord("W")) or gamepad_button_check(0,gp_face1)) and instance_p
 
 
 if(instance_place(x,y+vspeed,obj_ground)){
-	while(!instance_place(x,y+vspeed,obj_ground)){
+	while(!instance_place(x,y+sign(vspeed),obj_ground)){
 		y += 1	
 	}
 	vspeed = 0;

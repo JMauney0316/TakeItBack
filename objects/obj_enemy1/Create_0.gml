@@ -3,9 +3,11 @@
 AggroRange = 100;
 MoveDir = 1;
 
-offsetx = image_xscale * 36;
+//offsetx = image_xscale * 36;
 offsety = -8 ;
 
 stateOfx = false;
 
 enemy1Health = 5;
+
+hithurt = false;
