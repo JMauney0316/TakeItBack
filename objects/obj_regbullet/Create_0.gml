@@ -7,4 +7,6 @@ hspeed *= obj_player.lastDir;
 
 basedamage = 1;
 
+audio_play_sound(fireballLaunch, 5, false);
+
 instance_create_layer(x,y,"Instances",obj_FBCreation)

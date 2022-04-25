@@ -70,6 +70,8 @@ if (keyboard_check(vk_space) or gamepad_button_check(0,gp_face1)) and instance_p
 		sprite_index = spr_player;
 	}
 	
+	audio_play_sound(jump, 5, false);
+	
 	vspeed = -JumpHeight
 	
 	state = states.airborne

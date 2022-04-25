@@ -11,8 +11,8 @@ if(stop == false){
 	}
 
 
-	if(instance_place(x+(sign(MoveDir) * Move),y,obj_ground)){
-		MoveDir = -1 * sign(MoveDir)
+	if(instance_place(x+(MoveDir * Move),y,obj_ground) or !instance_place(x+(sprite_xoffset * MoveDir), y+1, obj_ground)){
+		MoveDir *= -1 
 		//image_xscale *= 1
 	}
 }
@@ -36,7 +36,7 @@ if(enemyHealth <= 0){
 	instance_destroy();
 }
 
-//show_debug_message(string(sign(MoveDir)))
+show_debug_message(string(sign(MoveDir)))
 
 if(hithurt == true and alarm[0] == -1){
 	alarm[0] = 5;	

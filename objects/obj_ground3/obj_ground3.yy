@@ -4,7 +4,7 @@
     "path": "sprites/spr_pastblock/spr_pastblock.yy",
   },
   "solid": true,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

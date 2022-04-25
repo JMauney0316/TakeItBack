@@ -4,5 +4,5 @@ other.enemyHealth -= basedamage;
 other.hithurt = true;
 
 
-
+audio_play_sound(bullHit, 5, false);
 instance_destroy();

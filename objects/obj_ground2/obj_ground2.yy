@@ -4,7 +4,7 @@
     "path": "sprites/spr_presentblock/spr_presentblock.yy",
   },
   "solid": true,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

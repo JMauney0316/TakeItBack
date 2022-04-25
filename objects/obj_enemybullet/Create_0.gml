@@ -8,4 +8,6 @@ if(x > obj_player.x){
 }
 */
 
+audio_play_sound(enemBullet, 5, false);
+
 instance_create_layer(x,y,"Instances",obj_bulFlash);
