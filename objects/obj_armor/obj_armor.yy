@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_armor",
-    "path": "sprites/spr_armor/spr_armor.yy",
+    "name": "spr_armorUpgrade",
+    "path": "sprites/spr_armorUpgrade/spr_armorUpgrade.yy",
   },
   "solid": false,
   "visible": true,

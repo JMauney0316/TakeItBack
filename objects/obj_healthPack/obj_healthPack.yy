@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_hpPack",
-    "path": "sprites/spr_hpPack/spr_hpPack.yy",
+    "name": "spr_shieldUpgrade",
+    "path": "sprites/spr_shieldUpgrade/spr_shieldUpgrade.yy",
   },
   "solid": false,
   "visible": true,

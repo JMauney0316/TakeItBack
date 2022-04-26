@@ -1,3 +1,3 @@
 /// @description Insert description here
 // You can write your code in this editor
-PlayHealth = 0;
+lives = 0;

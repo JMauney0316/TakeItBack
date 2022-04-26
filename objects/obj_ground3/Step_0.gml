@@ -47,5 +47,5 @@ if enem2 != noone {
 
 var player = collision_rectangle(x1,y1,x2,y2, obj_player, false, true)
 if player != noone {
-	with (player) PlayHealth = 0;	
+	with (player) lives = 0;	
 }

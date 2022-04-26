@@ -91,8 +91,10 @@ if(obj_bosscontroller.at == 0){
 		} else {
 			speed = 0;	
 			if(spacing == 1){
-				obj_bosscontroller.at = 1;
-				obj_bosscontroller.alarm[4] = 30;
+				if(object_exists(obj_bosscontroller)){
+					obj_bosscontroller.at = 1;
+					obj_bosscontroller.alarm[4] = 30;
+				}
 			}
 			//show_debug_message(string(state));
 			//show_debug_message(string(obj_bosscontroller.at));
@@ -109,8 +111,11 @@ if(obj_bosscontroller.at == 0){
 		if(spacing == 5){
 			speed = 0;	
 			show_debug_message("Hit early")
-			obj_bosscontroller.at = 3;
-			obj_bosscontroller.alarm[0] = 40;
+			if(object_exists(obj_bosscontroller)){
+				obj_bosscontroller.at = 3;
+				obj_bosscontroller.alarm[0] = 40;
+			}
+			instance_create_layer(768,680,"ExplosionLayer", obj_incomingFixed);
 			resetCond = true;
 			instance_destroy();
 		}
@@ -137,8 +142,10 @@ if(obj_bosscontroller.at == 0){
 	*/
 	if(point_distance(x,y,64,320) < 10){
 		path_end();
-		obj_bosscontroller.at = 0;
-		obj_bosscontroller.alarm[0] = 40;
+		if(object_exists(obj_bosscontroller)){
+			obj_bosscontroller.at = 0;
+			obj_bosscontroller.alarm[0] = 40;
+		}
 		resetCond = true;
 		instance_destroy();
 	} 

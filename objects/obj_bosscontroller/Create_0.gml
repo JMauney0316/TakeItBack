@@ -24,3 +24,6 @@ area = 0;
 
 BossHealth = 50;
 
+audio_stop_sound(game_music);
+//audio_play_sound(boss, 10, true);
+

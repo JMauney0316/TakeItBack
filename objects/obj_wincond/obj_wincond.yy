@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_winball",
-    "path": "sprites/spr_winball/spr_winball.yy",
+    "name": "spr_gateway",
+    "path": "sprites/spr_gateway/spr_gateway.yy",
   },
   "solid": false,
   "visible": true,

@@ -2,8 +2,10 @@
 // You can write your code in this editor
 //global.winyet = true;
 if(alarm[0] == -1){
-	alarm[0] = 30;
+	alarm[0] = 15;
 }
+
+obj_player.visible = false;
 
 
 

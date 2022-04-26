@@ -3,6 +3,8 @@
 
 show_debug_message("Alarm0: " + string(at));
 
+audio_play_sound(roar, 5, false);
+
 if(at == 0){
 	holdx = x;
 	holdy = y;

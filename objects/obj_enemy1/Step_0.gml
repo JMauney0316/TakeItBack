@@ -10,10 +10,15 @@ if(distance_to_object(obj_player) > AggroRange){
 			gravity = 0;
 		}
 
-
+		/*
 		if(instance_place(x+(sign(MoveDir) * Move),y,obj_ground) or !instance_place(x+(sign(MoveDir) * Move),y+1,obj_ground)){
 			//MoveDir *= -1	
 			MoveDir = -1 * sign(MoveDir)
+		}
+		*/
+		if(instance_place(x+(MoveDir * Move),y,obj_ground) or !instance_place(x+(sprite_xoffset * MoveDir), y+1, obj_ground)){
+		MoveDir *= -1 
+		//image_xscale *= 1
 		}
 	
 } else {	
