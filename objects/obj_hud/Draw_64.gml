@@ -3,6 +3,10 @@
 
 //audio_play_sound(game_music, 50, true)
 
+if(instance_exists(obj_player)){
+
+draw_set_halign((fa_left));
+
 for(var i = 0; i<obj_player.maxPlayHealth; i++){
 	draw_sprite(spr_maxLives, 0, (15+30*i), 10)
 }
@@ -26,4 +30,6 @@ if(global.winyet == true){
 
 if(global.loseyet == true){
 	draw_text((view_wport[0]/2)-40,(view_hport[0]/2)-60, "You've lost");
+}
+
 }

@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+if(instance_exists(obj_bosscontroller)){
 if(obj_bosscontroller.at == 0){
 	if(tag == true){
 		locy = 423 - (spacing * 50);
@@ -150,6 +150,7 @@ if(obj_bosscontroller.at == 0){
 		instance_destroy();
 	} 
 	
+}
 }
 
 if(state == phases.death){
